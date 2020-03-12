@@ -35,9 +35,9 @@ function addNumbers(num1, num2) {
  * the returned value should look like: 'Goodbye, Andy. Have a great day.'
  * 
 */
-function sayGoodbye(/* code here */) {
+function sayGoodbye(name) {
   /* code here */
-  
+    return `Goodbye, ${name}. Have a great day.`
 }
 
 /**
@@ -54,8 +54,9 @@ function sayGoodbye(/* code here */) {
  * Hint 1: The formula for converting celsius to fahrenheit is t*9/5 + 32 where t is the temperature in celsius.
  * Hint 2: There is a very easy way to round numbers in JS. Do a google search to find out how. 
 */
-function temperatureCtoF(/* code here */) {
-  /* code here */
+function temperatureCtoF(temp) {
+  
+  return Math.round(temp*9 / 5 + 32);
 }
 
 /**
@@ -75,8 +76,16 @@ function temperatureCtoF(/* code here */) {
  * 
  * Hint: You can call your `temperatureCtoF` function from inside `temperatureInF`.
 */
-function temperatureInF(/* code here */) {
-  /* code here */
+function temperatureInF(tempNumb,tempType) {
+  if (tempType === "F"){
+
+    return `${tempNumb}${tempType}`;
+
+  } else {
+
+    let cels = temperatureCtoF(tempNumb);
+    return `${cels}F`;
+  }
 }
 
 
@@ -96,8 +105,15 @@ function temperatureInF(/* code here */) {
  *   email: "leia@leia.com",
  * }
 */
-function makePersonObject(/* code here */) {
+function makePersonObject(id, name, email) {
   /* code here */
+  const person = {
+    id: id,
+    name: `${name}`,
+    email: `${email}`
+  }
+
+  return person;
 }
 
 /**
@@ -113,8 +129,9 @@ function makePersonObject(/* code here */) {
  * passing { id: 1, name: 'Leia', email: 'leia@leia.com` } as the argument,
  * the returned value should look like `Hello, my name is Leia`.
 */
-function getName(/* code here */) {
+function getName(obj) {
   /* code here */
+  return `Hello, my name is ${obj.name}`;
 }
 
 
@@ -133,8 +150,15 @@ function getName(/* code here */) {
  * passing in [ 'orange', 'grape', 'apple', 'banana', 'mango' ] as the argument,
  * the returned value should be: 2.
 */
-function appleIndex(/* code here */) {
+function appleIndex(arr) {
   /* code here */
+  for (let i = 0; i < arr.length; i++){
+
+    let position = arr.indexOf("apple");
+
+    return position;
+
+  }
 }
 
 /**
@@ -152,8 +176,25 @@ function appleIndex(/* code here */) {
  * passing in [ 'orange', 'apple', 'banana', 'apples', 'apple', 'mango' ] as the argument,
  * the returned value should be: [ false, true, false, false, true, false ].
 */
-function isItAnApple(/* code here */) {
+function isItAnApple(arr) {
   /* code here */
+  let appleCheck = [];
+
+  // sort through array
+  for (let i = 0; i < arr.length; i++){
+  // check if index equals === apple
+    if (arr[i] === 'apple'){
+
+      appleCheck.push(true);
+
+    } else {
+      
+      appleCheck.push(false);
+    }
+  }
+
+  return appleCheck;
+  
 }
 
 
